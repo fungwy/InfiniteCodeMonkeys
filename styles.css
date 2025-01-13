@@ -18,7 +18,7 @@ body {
     border: 1px solid #ccc;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 4px;
     z-index: 1000;
     /* Ensure it appears on top */
 }
@@ -63,7 +63,10 @@ h2 {
 
 .ans-no {
     background-color: rgb(246, 71, 71);
+    border-radius: 4px;
+    border: 2px solid rgb(246, 71, 71);
     color: white;
+    cursor: pointer;
 }
 
 .ans-no:hover {
@@ -78,6 +81,9 @@ h2 {
 .confirm-action {
     background-color: #32de84;
     color: white;
+    border-radius: 4px;
+    border: 2px solid #32de85cb;
+    cursor: pointer;
 }
 
 .confirm-action:hover {
@@ -138,11 +144,26 @@ button:disabled {
 }
 
 .button-group {
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
 }
 
 .closeButton {
     background-color: #008CBA;
     color: white;
+    border: 2px solid #008CBA;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.closeButton:hover {
+    background-color: #008bbab4;
+}
+#exportCSV,
+#clearCSV,
+.tryAgain-section
+ {
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
 }
