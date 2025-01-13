@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('tryAgain').addEventListener('click', () => {
         window.location.href = 'index.html';
     });
-    
+
     const confirmAction = document.getElementById('confirmAction');
     const cancelAction = document.getElementById('cancelAction');
+    const alertContainer = document.getElementById('alert-container');
     checked = new Boolean(false);
 
     confirmAction.addEventListener('click', () => {
@@ -12,15 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     cancelAction.addEventListener('click', () => {
-        alert('You must agree to the terms to use this service.');
-        confirmationSection.style.display = 'block';
-    })
+        alertContainer.classList.remove('hidden');
+    });
+
+    document.getElementById('closeAlert').addEventListener('click', () => {
+        alertContainer.classList.add('hidden');
+    });
 
     if (!checked) {
         console.log("page reloading");
     } else {
         const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
-       
+
         function transactionExists(item, amount, date) {
             return transactions.some(transaction => transaction.item === item && transaction.amount === amount && transaction.date === date);
         }
@@ -36,21 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 date: new Date('2024-12-03').toISOString().split('T')[0]
             }
         ];
-        
+
         newTransactions.forEach(newTransaction => {
             if (!transactionExists(newTransaction.item, newTransaction.amount, newTransaction.date)) {
                 transactions.push(newTransaction);
             }
         });
-        
+
         localStorage.setItem('transactions', JSON.stringify(transactions));
-        
+
         const chartData = {
             labels: ['Money In', 'Money Out'],
             datasets: [{
                 data: [2, transactions.length], // Initial data
                 backgroundColor: ['#28a745', '#ff6384'],
-                hoverBackgroundColor: ['#218838','#c82333']
+                hoverBackgroundColor: ['#218838', '#c82333']
             }]
         };
 
@@ -192,3 +196,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 });
+
+

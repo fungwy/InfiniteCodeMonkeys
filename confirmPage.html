@@ -17,26 +17,10 @@
 
 <body>
     <script> document.addEventListener('DOMContentLoaded', (event) => { console.log('index is fully loaded and parsed'); }); </script>
-    <!-- <div class="container">
-        <h1>Online Transaction Control</h1>
-        <div class="what-are-you-buying-section" id="whatAreYouBuyingSection">
-            <h2>What Are You Buying?</h2>
-            <form id="whatAreYouBuyingForm">
-                <div>
-                    <label for="item">Item Description:</label>
-                    <input type="text" id="item" name="item" value="Tennis Equipment" required>
-                </div>
-                <div>
-                    <label for="amount">Amount to Spend:</label>
-                    <input type="number" id="amount" name="amount" value="69.99" required>
-                </div>
-                <button type="submit" class="confirm-action">Proceed to Transaction</button>
-            </form>
-        </div> -->
     <div class="container">
         <div class="green-bar">
             <p class="header">Online Transaction Control</p>
-        </div>        
+        </div>
         <div class="confirmation-section" id="confirmationSection">
             <h2>Confirm Your Action</h2>
             <p>Do you want to continue with this transaction? You will have £580 remaining budget for this month.</p>
@@ -59,7 +43,12 @@
             <canvas id="spendingChart" width="400" height="400"></canvas>
         </div>
         <button id="tryAgain" class="'tryAgain-section">Try Example Again</button>
-    </div>
+        
+        <!-- Alert Container -->
+        <div id="alert-container" class="alert hidden">
+            <p>You must agree to the terms to use this service.</p>
+            <button id="closeAlert">Close</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
