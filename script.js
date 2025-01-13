@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmAction = document.getElementById('confirmAction');
     const cancelAction = document.getElementById('cancelAction');
     const alertContainer = document.getElementById('alert-container');
+    const closeAlert = document.getElementById('closeAlert');
+    const clearAlertContainer = document.getElementById('clear-alert-container');
+    const clearCSVAlert = document.getElementById('clearCSValert');
     checked = new Boolean(false);
 
     confirmAction.addEventListener('click', () => {
@@ -16,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alertContainer.classList.remove('hidden');
     });
 
-    document.getElementById('closeAlert').addEventListener('click', () => {
+    closeAlert.addEventListener('click', () => {
         alertContainer.classList.add('hidden');
     });
 
@@ -144,7 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
             transactions.length = 0;
             displayTransactionHistory();
             updateChartData();
-            alert('Transactions have been cleared.');
+            clearAlertContainer.classList.remove('hidden');
+        });
+
+        clearCSVAlert.addEventListener('click', () => {
+            clearAlertContainer.classList.add('hidden');
         });
 
         // function displayTransactionResult(message) {

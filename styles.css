@@ -140,3 +140,8 @@ button:disabled {
     margin-top: 20px;
     text-align: center;
 }
+
+.closeButton {
+    background-color: #008CBA;
+    color: white;
+}
