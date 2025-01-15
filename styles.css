@@ -61,6 +61,7 @@ h2 {
     text-align: left;
 }
 
+.stop-transaction,
 .ans-no {
     background-color: rgb(246, 71, 71);
     border-radius: 4px;
