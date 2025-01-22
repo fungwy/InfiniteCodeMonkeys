@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             item: 'Power Bank',
-            amount: 10.49,
+            amount: 10.45,
             date: new Date('2024-12-03').toISOString().split('T')[0]
         }
     ];
@@ -51,11 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('transactions', JSON.stringify(transactions));
 
     const chartData = {
-        labels: ['Money In', 'Money Out'],
+        labels: ['Money In', 'Money Out', 'Account Balance'],
         datasets: [{
-            data: [2, transactions.length], // Initial data
-            backgroundColor: ['#28a745', '#ff6384'],
-            hoverBackgroundColor: ['#218838', '#c82333']
+            data: [50, 160.5 + 69.99*(transactions.length-2), 530], // Initial data
+            backgroundColor: ['#89CFF0', '#ff6384', '#FEFE62'],
+            hoverBackgroundColor: ['#7393B3', '#c82333','#FFB000']
         }]
     };
 
@@ -157,8 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('clearCSV').addEventListener('click', () => {
         localStorage.removeItem('transactions');
         transactions.length = 0;
+        chartData.datasets[0].data = [50, 0, 580];
+        spendingChart.update();
         displayTransactionHistory();
-        updateChartData();
+       
         clearAlertContainer.classList.remove('hidden');
     });
 
@@ -208,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateChartData() {
-        chartData.datasets[0].data = [2, transactions.length];
+        chartData.datasets[0].data = [50, 160.5 + 69.99*(transactions.length-2), 580];
         spendingChart.update();
         console.log('Updating Chart data');
     }
